@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 
 app = Flask(__name__)
 
@@ -7,7 +7,6 @@ medicamentos = [
     {'id': 1, 'nombre': 'Paracetamol', 'url': 'https://ejemplo.com/paracetamol'},
     {'id': 2, 'nombre': 'Ibuprofeno', 'url': 'https://ejemplo.com/ibuprofeno'}
 ]
-
 
 @app.route('/medicamentos', methods=['GET'])
 def get_medicamentos():
@@ -50,6 +49,10 @@ def eliminar_medicamento(id):
             del medicamentos[i]
             return jsonify({'message': 'Medicamento eliminado correctamente'})
     return jsonify({'error': 'Medicamento no encontrado'}), 404
+
+@app.route('/index')
+def index():
+    return render_template('index.html')
 
 if __name__ == '__main__':
     app.run(debug=True, port=8000)
