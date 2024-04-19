@@ -2,20 +2,38 @@ async function obtenerMedicamentos() {
     const response = await fetch('http://localhost:8000/medicamentos');
     const data = await response.json();
 
-    const medicamentosContainer = document.getElementById('medicamentos-container');
-    medicamentosContainer.innerHTML = ''; // Limpiar el contenedor antes de agregar nuevos elementos
-
-    data.forEach(medicamento => {
-        const medicamentoElement = document.createElement('div');
-        medicamentoElement.innerHTML = `
-            <p>ID: ${medicamento.id}</p>
-            <p>Nombre: ${medicamento.nombre}</p>
-            <p>URL: <a href="${medicamento.url}" target="_blank">${medicamento.url}</a></p>
-        `;
-        medicamentosContainer.appendChild(medicamentoElement);
-    });
+    mostrarMedicamentos(data);
 }
 
+function mostrarMedicamentos(data) {
+    const medicamentosContainer = document.getElementById('medicamentos-container');
+    medicamentosContainer.innerHTML = ''; // Limpiar el contenedor antes de agregar la tabla
+    const tablaMedicamentos = crearTablaMedicamentos(data);
+    medicamentosContainer.appendChild(tablaMedicamentos);
+}
+
+function crearTablaMedicamentos(data) {
+    const tabla = document.createElement('table');
+    tabla.innerHTML = `
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>URL</th>
+            </tr>
+        </thead>
+        <tbody>
+            ${data.map(medicamento => `
+                <tr>
+                    <td>${medicamento.id}</td>
+                    <td>${medicamento.nombre}</td>
+                    <td><a href="${medicamento.url}" target="_blank">${medicamento.url}</a></td>
+                </tr>
+            `).join('')}
+        </tbody>
+    `;
+    return tabla;
+}
 document.getElementById('obtener-medicamentos').addEventListener('click', obtenerMedicamentos);
 async function obtenerMedicamentoPorId(id) {
     const response = await fetch(`http://localhost:8000/medicamentos/${id}`);

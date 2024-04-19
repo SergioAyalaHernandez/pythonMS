@@ -5,48 +5,123 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Página de Inicio</title>
     <style>
-        /* Estilos CSS para la página */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f2f2f2;
-        }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-        }
-        nav {
-            background-color: #444;
-            color: #fff;
-            padding: 5px;
-        }
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-        nav ul li {
-            display: inline-block;
-            margin-right: 10px;
-        }
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            padding: 5px 10px;
-        }
-        section {
-            padding: 20px;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-        }
+/* Estilos CSS para la página */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+nav {
+    background-color: #444;
+    color: #fff;
+    padding: 5px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+}
+
+section {
+    padding: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Estilos para botones y contenedores de la sección Servicios */
+#servicios {
+    text-align: center;
+}
+
+#servicios button {
+    margin-bottom: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#servicios button:hover {
+    background-color: #0056b3;
+}
+
+#medicamentos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.medicamento {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    width: 300px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    text-align: left;
+}
+
+tbody tr:hover {
+    background-color: #f2f2f2;
+}
+
+.medicamento p {
+    margin: 5px 0;
+}
+
+.medicamento a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.medicamento a:hover {
+    text-decoration: underline;
+}
+
     </style>
 </head>
 <body>
@@ -66,11 +141,6 @@
     <section id="inicio">
         <h2>Bienvenido a mi página</h2>
         <p>Esta es una página de ejemplo con varias secciones.</p>
-    </section>
-
-    <section id="acerca">
-        <h2>Acerca de</h2>
-        <p>Aquí puedes encontrar información sobre mí y mi empresa.</p>
     </section>
 
     <section id="servicios">
